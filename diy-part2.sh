@@ -17,5 +17,5 @@ sed -i "s/OpenWrt /HI build $(TZ=UTC-8 date "+%Y.%m.%d") @ R4AGV2 /g" package/le
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='XiaoMiRouter'' package/lean/default-settings/files/zzz-default-settings
 sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=19991014' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+rm -rf feeds/luci/themes/luci-theme-bootstrap/
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci*/Makefile
