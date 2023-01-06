@@ -18,7 +18,6 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='XiaoMiRouter'' 
 sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=19991014' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 rm -rf package/lean/luci-theme-bootstrap
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 curl -fsSL https://raw.githubusercontent.com/craytona170/openwrttest/main/banner > package/base-files/files/etc/banner
 sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
