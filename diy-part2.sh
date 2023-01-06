@@ -19,5 +19,4 @@ sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/
 sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=19991014' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-rm -rf package/base-files/files/etc/banner
-cp -f ../banner package/base-files/files/etc/
+curl -fsSL https://raw.githubusercontent.com/craytona170/openwrttest/main/banner > package/base-files/files/etc/banner
